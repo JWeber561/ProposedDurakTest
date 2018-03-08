@@ -6,7 +6,7 @@ using System.Diagnostics; // for Debug and Trace objects
 
 namespace DurakDeck
 {
-    public class Deck
+    public class Deck : PileOfCards
     {
         private List <Card> cards;
         private int myDeckSize;
@@ -60,23 +60,6 @@ namespace DurakDeck
         public Deck()
         {
             
-        }
-
-        public Card GetCard()
-        {
-            if (GetCount() > 0)
-            {
-                Card cardReturned = cards[0];
-                cards.RemoveAt(0);
-                return cardReturned;
-                
-            }
-            else
-                throw (new System.ArgumentOutOfRangeException("deckSize", 0,"Cannot draw from an empty deck"));
-        }
-        public int GetCount()
-        {
-            return cards.Count;
         }
         public void Shuffle()
         {
