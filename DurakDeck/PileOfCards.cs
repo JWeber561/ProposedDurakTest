@@ -8,7 +8,7 @@ namespace DurakDeck
 {
     public class PileOfCards
     {
-        private List<Card> cards;
+        public List<Card> cards;
         public PileOfCards()
         {
 
@@ -24,6 +24,10 @@ namespace DurakDeck
             }
             else
                 throw (new System.ArgumentOutOfRangeException("Cannot draw from an empty pile"));
+        }
+        public void AddCard(Card cardToAdd)
+        {
+            cards.Add(cardToAdd);
         }
         public int GetCount()
         {

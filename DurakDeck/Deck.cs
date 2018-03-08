@@ -8,7 +8,6 @@ namespace DurakDeck
 {
     public class Deck : PileOfCards
     {
-        private List <Card> cards;
         private int myDeckSize;
 
         public Deck(int deckSize)
