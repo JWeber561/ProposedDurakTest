@@ -1,0 +1,5 @@
+E:\OOP4200\ProposedDurakTest\DurakDeck\bin\Debug\DurakDeck.dll
+E:\OOP4200\ProposedDurakTest\DurakDeck\bin\Debug\DurakDeck.pdb
+E:\OOP4200\ProposedDurakTest\DurakDeck\obj\Debug\DurakDeck.csprojResolveAssemblyReference.cache
+E:\OOP4200\ProposedDurakTest\DurakDeck\obj\Debug\DurakDeck.dll
+E:\OOP4200\ProposedDurakTest\DurakDeck\obj\Debug\DurakDeck.pdb
