@@ -13,7 +13,11 @@ namespace DurakDeck
         {
 
         }
-        public Card GetCard()
+        public Card GetCard(int index)
+        {
+            return cards.ElementAt(index);
+        }
+        public Card DrawCard()
         {
             if (GetCount() > 0)
             {

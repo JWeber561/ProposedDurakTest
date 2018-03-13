@@ -14,7 +14,7 @@ namespace DurakDeck
         {
             //cards = new Card[deckSize];
             myDeckSize = deckSize;
-            cards = new List<Card>();
+            //cards = new List<Card>();
             if (myDeckSize == 20)
             {
                 for (int suitVal = 0; suitVal < 4; suitVal++)
