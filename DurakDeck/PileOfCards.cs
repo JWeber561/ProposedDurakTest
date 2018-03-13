@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DurakDeck
 {
-    public class PileOfCards
+    public abstract class PileOfCards
     {
         public List<Card> cards;
         public PileOfCards()
@@ -15,9 +15,15 @@ namespace DurakDeck
         }
         public Card GetCard(int index)
         {
-            return cards.ElementAt(index);
+            if (index >= 0 && index <= GetCount()-1)
+            {
+                return cards[index];
+            }
+            else
+                throw (new System.ArgumentOutOfRangeException("index", index,
+                String.Format("Value must be between 0 and {0}.", GetCount() - 1)));
         }
-        public Card DrawCard()
+        public Card DrawCardFrom()
         {
             if (GetCount() > 0)
             {
@@ -32,6 +38,13 @@ namespace DurakDeck
         public void AddCard(Card cardToAdd)
         {
             cards.Add(cardToAdd);
+        }
+        public void CombineCards(PileOfCards pile)
+        {
+            while (pile.GetCount() > 0)
+            {
+                AddCard(pile.DrawCardFrom());
+            }
         }
         public int GetCount()
         {

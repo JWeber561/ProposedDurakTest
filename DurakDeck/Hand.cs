@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace DurakDeck
 {
-    public class DiscardPile:PileOfCards
+    public class Hand : PileOfCards
     {
-        public Card GetTopCard()
-        {
-            return GetCard(GetCount()-1);
-        }
     }
 }

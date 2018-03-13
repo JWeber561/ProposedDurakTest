@@ -9,56 +9,38 @@ namespace DurakDeck
     public class Deck : PileOfCards
     {
         private int myDeckSize;
+        private int minRank;
 
         public Deck(int deckSize)
         {
-            //cards = new Card[deckSize];
             myDeckSize = deckSize;
-            //cards = new List<Card>();
             if (myDeckSize == 20)
             {
-                for (int suitVal = 0; suitVal < 4; suitVal++)
-                {
-                    for (int rankVal = 10; rankVal < 15; rankVal++)
-                    {
-                        /*cards[suitVal * 5 + rankVal - 10] = new Card((Suit)suitVal,
-                        (Rank)rankVal);*/
-                        cards.Add(new Card((Suit)suitVal,(Rank)rankVal));
-                    }
-                }
+                minRank = 10;
             }
             else if (myDeckSize == 36)
             {
-                for (int suitVal = 0; suitVal < 4; suitVal++)
-                {
-                    for (int rankVal = 6; rankVal < 15; rankVal++)
-                    {
-                        /*cards[suitVal * 9 + rankVal - 6] = new Card((Suit)suitVal,
-                        (Rank)rankVal);*/
-                        cards.Add(new Card((Suit)suitVal, (Rank)rankVal));
-                    }
-                }
+                minRank = 6;
             }
             else if (myDeckSize == 52)
             {
-                for (int suitVal = 0; suitVal < 4; suitVal++)
-                {
-                    for (int rankVal = 2; rankVal < 15; rankVal++)
-                    {
-                        /*cards[suitVal * 13 + rankVal - 2] = new Card((Suit)suitVal,
-                        (Rank)rankVal);*/
-                        cards.Add(new Card((Suit)suitVal, (Rank)rankVal));
-                    }
-                }
+                minRank = 2;
             }
             else
             {
                 throw (new ArgumentOutOfRangeException("deckSize", myDeckSize, String.Format("deckSize must be 20, 36, or 52 exclusively, not {0}.", myDeckSize)));
             }
+            for (int suitVal = 0; suitVal < 4; suitVal++)
+            {
+                for (int rankVal = minRank; rankVal < 15; rankVal++)
+                {
+                    cards.Add(new Card((Suit)suitVal, (Rank)rankVal));
+                }
+            }
         }
         public Deck()
         {
-            
+            throw (new Exception("Use The Parameterized Constructor"));
         }
         public void Shuffle()
         {
@@ -78,45 +60,12 @@ namespace DurakDeck
          }
         public void Refill()
         {
-            if (myDeckSize == 20)
+            for (int suitVal = 0; suitVal < 4; suitVal++)
             {
-                for (int suitVal = 0; suitVal < 4; suitVal++)
+                for (int rankVal = minRank; rankVal < 15; rankVal++)
                 {
-                    for (int rankVal = 10; rankVal < 15; rankVal++)
-                    {
-                        /*cards[suitVal * 5 + rankVal - 10] = new Card((Suit)suitVal,
-                        (Rank)rankVal);*/
-                        cards.Add(new Card((Suit)suitVal, (Rank)rankVal));
-                    }
+                    cards.Add(new Card((Suit)suitVal, (Rank)rankVal));
                 }
-            }
-            else if (myDeckSize == 36)
-            {
-                for (int suitVal = 0; suitVal < 4; suitVal++)
-                {
-                    for (int rankVal = 6; rankVal < 15; rankVal++)
-                    {
-                        /*cards[suitVal * 9 + rankVal - 6] = new Card((Suit)suitVal,
-                        (Rank)rankVal);*/
-                        cards.Add(new Card((Suit)suitVal, (Rank)rankVal));
-                    }
-                }
-            }
-            else if (myDeckSize == 52)
-            {
-                for (int suitVal = 0; suitVal < 4; suitVal++)
-                {
-                    for (int rankVal = 2; rankVal < 15; rankVal++)
-                    {
-                        /*cards[suitVal * 13 + rankVal - 2] = new Card((Suit)suitVal,
-                        (Rank)rankVal);*/
-                        cards.Add(new Card((Suit)suitVal, (Rank)rankVal));
-                    }
-                }
-            }
-            else
-            {
-                throw (new ArgumentOutOfRangeException("deckSize", myDeckSize, String.Format("deckSize must be 20, 36, or 52 exclusively, not {0}.", myDeckSize)));
             }
         }
     }
